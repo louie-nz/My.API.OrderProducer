@@ -1,0 +1,24 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myorderapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myorderapi
+  template:
+    metadata:
+      labels:
+        app: myorderapi
+    spec:
+      containers:
+      - name: myorderapi
+        image: louieacr.azurecr.io/myorderapi:v2
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: 100m
+          limits:
+            cpu: 200m
