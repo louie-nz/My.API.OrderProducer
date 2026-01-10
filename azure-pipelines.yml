@@ -45,8 +45,8 @@ steps:
       displayName: 'Publish API build artifacts'
 
   # Publish Kubernetes manifests
-  - task: PublishBuildArtifacts@1
+  - task: PublishPipelineArtifact@1
     inputs:
-      pathToPublish: 'manifests'
-      artifactName: 'manifests'
+      targetPath: 'manifests'
+      artifact: 'manifests'
       displayName: 'Publish Kubernetes manifests'
