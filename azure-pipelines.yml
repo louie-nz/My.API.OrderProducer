@@ -37,8 +37,16 @@ steps:
       zipAfterPublish: true
     displayName: 'Publish API'
 
+  # Publish API build output
   - task: PublishBuildArtifacts@1
     inputs:
       pathToPublish: '$(Build.ArtifactStagingDirectory)'
       artifactName: 'api'
-    displayName: 'Publish build artifacts'
+      displayName: 'Publish API build artifacts'
+
+  # Publish Kubernetes manifests
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathToPublish: 'manifests'
+      artifactName: 'manifests'
+      displayName: 'Publish Kubernetes manifests'
