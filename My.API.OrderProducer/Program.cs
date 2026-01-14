@@ -3,6 +3,8 @@ using My.API.OrderProducer.Repositories;
 using My.API.OrderProducer.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
 // Add services to the container.
 
